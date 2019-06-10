@@ -37,6 +37,18 @@ $("button").on("click",function(){
         // empty buttons
         $(".buttons-view").empty()
 
+        for(var i = 0; i< gifArr; i++){
+          var btn = $("<button>")
+
+          btn.addClass("gif button")
+
+          btn.attr("data-name", gifArr[i])
+
+          btn.text(gifArr[i])
+
+          $(".buttons-view").append(btn)
+        }
+
 
       }
 
