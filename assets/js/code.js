@@ -15,6 +15,10 @@ function showGif(){
       // loops through the data and appends to the div
       for(var i = 0; i < results.length; i++){
 
+        var animate = results[i].data.images.original.url
+        console.log(animate)
+        var still = results[i].data.images.original_still.url
+        console.log(still)
         var animalDiv = $("<div>")
         // sets variable for rating at index i of response.data
         var rating = results[i].rating
@@ -26,6 +30,7 @@ function showGif(){
         var animalImage = $("<img>")
         //adds src to attribute results at index i from fixed height url
         animalImage.attr("src", results[i].images.fixed_height.url)
+        animalImage.attr("data-state", "animate")
         //appends animalImage to animalDiv
         animalDiv.append(animalImage)
         //prepends animal div to gifs div
@@ -53,6 +58,19 @@ function showGif(){
           $(".buttons-view").append(btn)
         }
       }
+      //event handler for when the gif button is clicked
+      $("#add-gif").on("click",function(event){
+        
+        event.preventDefault()
+
+        // gets input from the text box and sanitizes it
+        var giph = $("#gif-input").val().trim()
+        //pushes giph into gifArr
+        gifArr.push(giph)
+        // calls renderButton to show our button on the dom
+        renderButtons()  
+      })
+
 //Adds a click event listener to all elements with gif button
 $(document).on("click",".gif-btn",showGif)
 
