@@ -1,3 +1,6 @@
+// Initial array for the gifs
+var gifArr = ["dog","cat","pig"]
+
 $("button").on("click",function(){
   var animal = $(this).attr("data-animal")
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -26,6 +29,14 @@ $("button").on("click",function(){
         animalDiv.append(animalImage)
         //prepends animal div to gifs div
         $(".gifs").prepend(animalDiv)
+
+      }
+      // renders functions for the gifs
+      function renderButtons(){
+
+        // empty buttons
+        $(".buttons-view").empty()
+
 
       }
 
