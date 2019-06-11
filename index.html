@@ -6,25 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Giftastic</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
     <script src="assets/js/code.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
-        <!-- buttons go here -->
-        <div class="buttons-view"></div>
-        <!-- divs search bar -->
-        <div class="search">
-            <form id="gif-form">
-                <label for="gif-input">Add an animal</label>
-                <input type="text" id="gif-input">
-                <br>
+        <div class="nav bg-light">
+                <div class="col-md-8">
+                            <!-- buttons go here -->
+            <div class="buttons-view"></div>
+                </div>
 
-                <input id="add-gif" type="submit" value="Type a gif">
-            </form>
-        </div>
+                                    <!-- divs search bar -->
+        <div class="col-md-4">
+                <form id="gif-form">
+                    <label for="gif-input">Add an animal</label>
+                    <input type="text" id="gif-input">
+    
+                    <input id="add-gif" type="submit" value="Type a gif">
+                </form>
+            </div>
+            </div>
+
+    <div class="container bg-light">
+
+
+
         <!-- gifs go here -->
         <div class="gifs"></div>
 

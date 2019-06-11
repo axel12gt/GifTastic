@@ -20,6 +20,7 @@ function showGif(){
         var still = results[i].images.original_still.url
         console.log(still)
         var animalDiv = $("<div>")
+        animalDiv.addClass("animalDiv")
         // sets variable for rating at index i of response.data
         var rating = results[i].rating
         // sets inner text to rating 
