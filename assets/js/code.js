@@ -15,9 +15,9 @@ function showGif(){
       // loops through the data and appends to the div
       for(var i = 0; i < results.length; i++){
 
-        var animate = results[i].data.images.original.url
-        console.log(animate)
-        var still = results[i].data.images.original_still.url
+        var animation = results[i].images.original.url
+        console.log(animation)
+        var still = results[i].images.original_still.url
         console.log(still)
         var animalDiv = $("<div>")
         // sets variable for rating at index i of response.data
@@ -29,8 +29,16 @@ function showGif(){
         //sets img tag to the animal image
         var animalImage = $("<img>")
         //adds src to attribute results at index i from fixed height url
-        animalImage.attr("src", results[i].images.fixed_height.url)
-        animalImage.attr("data-state", "animate")
+        animalImage.attr("src", results[i].images.original_still.url)
+        //adds animate atribute 
+        animalImage.attr("data-animate", results[i].images.original.url)
+        //adds still attribute
+        animalImage.attr("data-still", results[i].images.original_still.url)
+        //adds still data state
+        animalImage.attr("data-state", "still")
+        //adds class of gif
+        animalImage.addClass("gif")
+
         //appends animalImage to animalDiv
         animalDiv.append(animalImage)
         //prepends animal div to gifs div
@@ -70,6 +78,24 @@ function showGif(){
         // calls renderButton to show our button on the dom
         renderButtons()  
       })
+      //onclick function for the gif 
+      $(document).on("click",".gif",function(){
+        console.log("is running")
+      // sets the variable for state on click
+        var state = $(this).attr("data-state")
+
+        if(state == "still"){
+          //updates the src attribute of this image to it's data-animate
+          $(this).attr("src",$(this).attr("data-animate"))
+          // and update the data-state attribue to animate
+          $(this).attr("data-state", "animate")
+        }else{
+          $(this).attr("src", $(this).attr("data-still"))
+          $(this).attr("data-state", "still")
+        }
+      })
+
+
 
 //Adds a click event listener to all elements with gif button
 $(document).on("click",".gif-btn",showGif)
